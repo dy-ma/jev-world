@@ -1,0 +1,3 @@
+export type Run = { id: string; width: number; height: number; batchSize: number; concurrency: number; model: string; resolvedModel: string | null; status: 'running' | 'paused' | 'complete'; createdAt: string; elapsedMs: number; cells: (number | null)[]; completed: number; p50: number | null; p95: number | null; inFlight: number; inputTokens: number; outputTokens: number; message: string | null; requests: { ms: number; points: number; indices?: number[]; startedAtMs?: number; completedAtMs?: number; ok: boolean; at: string }[] };
+export type HarnessState = { configured: boolean; run: Run | null };
+export type SavedRun = Pick<Run, 'id' | 'width' | 'height' | 'createdAt' | 'status' | 'completed'>;

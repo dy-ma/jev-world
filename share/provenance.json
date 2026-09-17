@@ -1,0 +1,8 @@
+{
+  "sourceRunId": "b9144b61-f849-4bd0-979b-080ccf41b4a8",
+  "sourceSha256": "6294bf1d8c42743e8bed0187a4e95e27b41c96f3d025fda6dcb642525b7e8f52",
+  "promptVersion": 1,
+  "preparedAt": "2026-09-17T23:44:31.578Z",
+  "selection": "Most recent completed 64 × 32 run, explicitly selected by the user.",
+  "replay": "Original per-batch membership and wall-clock arrival times; no regenerated or reshuffled answers."
+}
