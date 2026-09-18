@@ -4,6 +4,20 @@ Ask Jev whether each coordinate is land or water, then replay the responses at t
 
 The default recording is **64 × 32**, generated in **5.806 seconds** with `jev-1.13.0`, 32 coordinates per request, and two concurrent requests. The hosted resolution selector also offers saved 32 × 16, 128 × 64, 256 × 128, and 512 × 256 runs. Each resolution has one recording; larger recordings load only when selected.
 
+## Results
+
+Measured results from the five published recordings, all using `jev-1.13.0` with **32 coordinates per request**. Each row is one completed run, not an average across repeated trials. Resolution links open the recorded data.
+
+| Resolution | Coordinates | Requests | Parallel requests | Elapsed (s) | Coordinates/s | Request p50 / p95 (ms) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| [32 × 16](share/recordings/32.json) | 512 | 16 | 2 | 1.367 | 374.5 | 128 / 416 |
+| [64 × 32](share/recording.json) | 2,048 | 64 | 2 | 5.806 | 352.7 | 156 / 308 |
+| [128 × 64](share/recordings/128.json) | 8,192 | 256 | 2 | 23.485 | 348.8 | 159 / 307 |
+| [256 × 128](share/recordings/256.json) | 32,768 | 1,024 | 2 | 96.822 | 338.4 | 159 / 312 |
+| [512 × 256](share/recordings/512.json) | 131,072 | 4,096 | 8 | 104.776 | 1,251.0 | 169 / 354 |
+
+Elapsed time includes scheduling and persistence, excluding explicit pauses; throughput is coordinates divided by that duration. Request latency includes network time and response parsing. The 512 × 256 run used eight parallel requests; the others used two, so its higher throughput reflects different concurrency settings.
+
 ## Run your own benchmarks
 
 Requires Node.js 22.23+ and npm.
