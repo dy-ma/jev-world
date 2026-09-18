@@ -1,5 +1,7 @@
 # Jev draws Earth
 
+<img width="1019" height="514" alt="Screenshot 2026-09-17 at 5 34 24 PM" src="https://github.com/user-attachments/assets/dfcee8ce-0ca2-430e-8fd0-1e103124cc66" />
+
 Ask Jev whether each coordinate is land or water, then replay the responses at their recorded arrival times. One codebase supports local benchmarks and a static, replay-only deployment.
 
 The default recording is **64 × 32**, generated in **5.806 seconds** with `jev-1.13.0`, 32 coordinates per request, and two concurrent requests. The hosted resolution selector also offers saved 32 × 16, 128 × 64, 256 × 128, and 512 × 256 runs. Each resolution has one recording; larger recordings load only when selected.
