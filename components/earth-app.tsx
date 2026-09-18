@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Download, Globe2, Pause, Play } from 'lucide-react';
+import { Code2, Download, Globe2, Pause, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -137,7 +137,7 @@ export default function EarthApp({ replayOnly = false, recording, replayChoices 
     {run && timeline && <BatchInspector key={run.id} run={run} batches={timeline.batches} position={batchPosition} onStep={stepBatch} disabled={!!active || busy} />}
     </div>
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-4"><Metric label="Blocks / second" value={run?.elapsedMs ? (run.completed / (run.elapsedMs / 1000)).toFixed(1) : '—'} /><Metric label="Request p50 / p95" value={run?.p50 != null ? `${Math.round(run.p50)} / ${Math.round(run.p95!)} ms` : '—'} /><Metric label="Requests" value={run ? `${run.requests.filter(r => r.ok).length} done · ${run.inFlight} active` : '—'} /><Metric label="Input tokens" value={run ? run.inputTokens.toLocaleString() : '—'} /></div>
-    <footer className="flex justify-end"><div className="flex gap-2"><Button variant="outline" onClick={() => download('png')} disabled={!completed}><Download />PNG</Button><Button variant="ghost" onClick={() => download('json')} disabled={!run}>JSON</Button></div></footer>
+    <footer className="flex items-center justify-between gap-2"><Button variant="ghost" nativeButton={false} render={<a href="https://github.com/dy-ma/jev-world" target="_blank" rel="noopener noreferrer" />}><Code2 />Source</Button><div className="flex gap-2"><Button variant="outline" onClick={() => download('png')} disabled={!completed}><Download />PNG</Button><Button variant="ghost" onClick={() => download('json')} disabled={!run}>JSON</Button></div></footer>
   </main>;
 }
 function Setting({ label, value, onChange, choices, disabled }: { label: string; value: string; onChange: (v: string) => void; choices: string[][]; disabled: boolean }) { return <div className="grid gap-2"><Label>{label}</Label><Select value={value} onValueChange={v => { if (v !== null) onChange(v); }} disabled={disabled}><SelectTrigger aria-label={label} className="min-w-32"><SelectValue>{choices.find(c => c[0] === value)?.[1]}</SelectValue></SelectTrigger><SelectContent>{choices.map(([v, name]) => <SelectItem key={v} value={v}>{name}</SelectItem>)}</SelectContent></Select></div>; }
