@@ -2,7 +2,7 @@
 
 Ask Jev whether each coordinate is land or water, then replay the responses at their recorded arrival times. One codebase supports local benchmarks and a static, replay-only deployment.
 
-The bundled recording is **64 × 32**, generated in **5.806 seconds** with `jev-1.13.0`, 32 coordinates per request, and two concurrent requests.
+The default recording is **64 × 32**, generated in **5.806 seconds** with `jev-1.13.0`, 32 coordinates per request, and two concurrent requests. The hosted resolution selector also offers saved 32 × 16, 128 × 64, 256 × 128, and 512 × 256 runs. Each resolution has one recording; larger recordings load only when selected.
 
 ## Run your own benchmarks
 
@@ -37,7 +37,7 @@ Deploy. `vercel.json` sets the build command to `npm run build` and the output d
 
 With the flag enabled:
 
-- The same map component shows the bundled recording and **Replay / Pause replay** control.
+- The same map component offers all five recorded resolutions and **Replay / Pause replay** controls.
 - Benchmark controls and harness polling are disabled.
 - The deployment contains static files only, with no generation backend or API routes.
 - The local API proxy and harness also reject live generation in replay-only mode.
@@ -60,14 +60,22 @@ Replay reveals only the blocks in each recorded response at its actual timestamp
 
 The bundled recording's last response arrived at 5.805 seconds; its measured run duration including final processing was 5.806 seconds. Timing metrics show the original measurements, not browser playback speed.
 
-Only the explicitly selected recording in `share/recording.json` is committed. Local runs, experiments, keys, and logs are ignored by Git. To curate a different completed 64 × 32 recording:
+The **Inside a request** inspector follows the latest recorded response: its coordinate matrix, measured round trip, and matching P(land) values. It sits beside the map on wide screens and below the progress bar on smaller screens. The white map outline locates that response's coordinates. Previous/next response pauses and seeks to that recorded arrival; responses sharing a timestamp remain separately inspectable. Select a matrix cell to read its full coordinate and probability precision. Matrix labels are rounded for display. Grid dimensions come from each response’s recorded coordinates, so 1-, 8-, 32-, and 64-point batches retain their own shapes and values. The inspector shows completed responses, not a simulated network animation or reconstructed dispatch times, and makes no API calls.
+
+Only the curated public recordings in `share/recording.json` (the default 64 × 32 run) and `share/recordings/` are committed. Local runs, experiments, keys, and logs are ignored by Git. To refresh the catalog, keeping the chosen 64 × 32 run and selecting the latest completed run for every other resolution:
+
+```sh
+npm run prepare:replay
+```
+
+To also select a different completed 64 × 32 recording:
 
 ```sh
 npm run prepare:replay -- <run-id>
 npm run build:replay
 ```
 
-This copies public recording fields without altering the source file. `share/provenance.json` identifies the source and its SHA-256 hash. **PNG** exports the currently displayed canvas; **JSON** exports the complete recording.
+This copies public recording fields without altering any source files. `share/catalog.json` lists the available resolutions; `share/provenance.json` identifies each source and its SHA-256 hash. Preparation rejects recordings without faithful replay data. **PNG** exports the currently displayed canvas; **JSON** exports the complete recording.
 
 ## What the experiment measures
 
@@ -97,7 +105,7 @@ npm run build:replay
 
 Tests use a fake provider, never your key. They cover request membership and arrival order, replay fidelity, caching, pause/resume, saved-run preservation, and replay-only generation guards.
 
-The local live harness is not a multi-user authenticated service. The supplied Vercel configuration hosts only the bundled replay.
+The local live harness is not a multi-user authenticated service. The supplied Vercel configuration hosts only the bundled replays.
 
 ## Whole-map request experiment
 

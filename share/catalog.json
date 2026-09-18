@@ -1,0 +1,45 @@
+{
+  "defaultWidth": 64,
+  "recordings": [
+    {
+      "width": 32,
+      "height": 16,
+      "id": "eb3b9d81-0373-48fc-a9ab-b479bcaadb81",
+      "batchSize": 32,
+      "concurrency": 2,
+      "file": "recordings/32.json"
+    },
+    {
+      "width": 64,
+      "height": 32,
+      "id": "b9144b61-f849-4bd0-979b-080ccf41b4a8",
+      "batchSize": 32,
+      "concurrency": 2,
+      "file": "recording.json"
+    },
+    {
+      "width": 128,
+      "height": 64,
+      "id": "d5a1e4ce-8940-40e3-bee1-ebebbec4d5b3",
+      "batchSize": 32,
+      "concurrency": 2,
+      "file": "recordings/128.json"
+    },
+    {
+      "width": 256,
+      "height": 128,
+      "id": "5c807d3d-d388-4159-bf69-f4442903f506",
+      "batchSize": 32,
+      "concurrency": 2,
+      "file": "recordings/256.json"
+    },
+    {
+      "width": 512,
+      "height": 256,
+      "id": "b52f71dc-1796-45b5-9cc3-1f199e5f50a0",
+      "batchSize": 32,
+      "concurrency": 8,
+      "file": "recordings/512.json"
+    }
+  ]
+}

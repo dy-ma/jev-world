@@ -1,8 +1,41 @@
 {
-  "sourceRunId": "b9144b61-f849-4bd0-979b-080ccf41b4a8",
-  "sourceSha256": "6294bf1d8c42743e8bed0187a4e95e27b41c96f3d025fda6dcb642525b7e8f52",
-  "promptVersion": 1,
-  "preparedAt": "2026-09-17T23:44:31.578Z",
-  "selection": "Most recent completed 64 × 32 run, explicitly selected by the user.",
+  "preparedAt": "2026-09-18T00:08:20.657Z",
+  "recordings": [
+    {
+      "sourceRunId": "eb3b9d81-0373-48fc-a9ab-b479bcaadb81",
+      "width": 32,
+      "sourceSha256": "dc2fb8d3885d9c13aab3b599bf820c7babdd2c336dc7ed899a422b820556e036",
+      "promptVersion": 1,
+      "selection": "Most recent completed recording at this resolution."
+    },
+    {
+      "sourceRunId": "b9144b61-f849-4bd0-979b-080ccf41b4a8",
+      "width": 64,
+      "sourceSha256": "6294bf1d8c42743e8bed0187a4e95e27b41c96f3d025fda6dcb642525b7e8f52",
+      "promptVersion": 1,
+      "selection": "Explicitly selected 64 × 32 recording."
+    },
+    {
+      "sourceRunId": "d5a1e4ce-8940-40e3-bee1-ebebbec4d5b3",
+      "width": 128,
+      "sourceSha256": "371fb13a5cc519abcd04ecd0ef496974c465e7338e4cddf415563cca318de781",
+      "promptVersion": 1,
+      "selection": "Most recent completed recording at this resolution."
+    },
+    {
+      "sourceRunId": "5c807d3d-d388-4159-bf69-f4442903f506",
+      "width": 256,
+      "sourceSha256": "183cc16a885d0065ef37565005b29e92c44bbbf24c23d691434d4c8840ea893d",
+      "promptVersion": 1,
+      "selection": "Most recent completed recording at this resolution."
+    },
+    {
+      "sourceRunId": "b52f71dc-1796-45b5-9cc3-1f199e5f50a0",
+      "width": 512,
+      "sourceSha256": "4fc498af1b1aa609a05455086caaa2a9da3b6a23054a9c631cf59ee331e737fc",
+      "promptVersion": 1,
+      "selection": "Most recent completed recording at this resolution."
+    }
+  ],
   "replay": "Original per-batch membership and wall-clock arrival times; no regenerated or reshuffled answers."
 }
